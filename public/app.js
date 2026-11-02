@@ -1,9 +1,10 @@
 const $=id=>document.getElementById(id);const viewer=document.body.dataset.viewer==='true';
 const time=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(Math.floor(s%60)).padStart(2,'0')}`;
 const set=(id,value)=>{if($(id))$(id).textContent=value;};
-let last='';
+let last='',lastMode='';
 async function api(url,body){const r=await fetch(url,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{});const d=await r.json();if(!r.ok)throw Error(d.error||'Request failed');return d;}
 function renderRecap(r){
+ if(r.mode!==lastMode){set('notice',r.mode==='offline'?'Offline mode uses original artwork and scripted events. No AI or Twitch connection is implied.':'Live mode samples the selected OBS game source. Audio is not analyzed.');lastMode=r.mode;}
  set('mode',r.mode==='offline'?'OFFLINE · SCRIPTED FIXTURE':'LIVE · VISUAL RECAP');set('current',r.state);set('updated',`Observed through ${time(r.analyzedUntil)} · ${r.events.length} recorded events`);
  if(viewer)set('notice',r.mode==='offline'?'Demonstration uses synthetic artwork and scripted observations. No AI analysis.':'Sampled visual observations. Audio is not analyzed in v0.1.');
  set('gap-note',`${r.gaps.length} sampling/analysis gaps recorded.`);
