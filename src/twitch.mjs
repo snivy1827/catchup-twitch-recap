@@ -1,5 +1,5 @@
 export class Twitch {
-  constructor(config,onCommand,onStatus,save) {Object.assign(this,{config,onCommand,onStatus,save}); this.closed=true; this.retry=null; this.sockets=new Set();}
+  constructor(config,onCommand,onStatus,save) {Object.assign(this,{config,onCommand,onStatus,save}); this.closed=true; this.retry=null; this.sockets=new Set();this.stats={received:0,suppressed:0,sent:0,failed:0,lastReply:null};}
   async validate() {
     const r=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${this.config.token}`},signal:AbortSignal.timeout(10000)});
     if(r.status===401 && this.config.refreshToken) { await this.refresh(); return this.validate(); }
@@ -39,8 +39,10 @@ export class Twitch {
         else if(m.metadata.message_type==='notification') {
           const e=m.payload.event;
           if(['!recap','!回顧'].includes(e.message?.text?.trim().toLowerCase())) {
+            this.stats.received++;
             const message=await this.onCommand(m.metadata.message_id,e.chatter_user_id);
-            if(message) {const result=await this.api('chat/messages',{broadcaster_id:this.userId,sender_id:this.userId,message}); if(!result.data?.[0]?.is_sent) throw Error(`Chat not sent: ${result.data?.[0]?.drop_reason?.code??'unknown'}`);}
+            if(message) {try{const result=await this.api('chat/messages',{broadcaster_id:this.userId,sender_id:this.userId,message}); if(!result.data?.[0]?.is_sent) throw Error(`Chat not sent: ${result.data?.[0]?.drop_reason?.code??'unknown'}`);this.stats.sent++;this.stats.lastReply={at:new Date().toISOString(),message,id:result.data[0].message_id};}catch(err){this.stats.failed++;throw err;}}
+            else this.stats.suppressed++;
           }
         }
       } catch(e) {this.onStatus(e.message);}

@@ -109,7 +109,7 @@ const server=http.createServer(async(req,res)=>{
       const t=await r.json();const tokens={token:t.access_token,refreshToken:t.refresh_token};await storeToken(tokens);await connectTwitch(tokens);res.writeHead(302,{Location:'/'});return res.end();
     }
     if(url.pathname==='/api/recap')return json(res,recap());
-    if(url.pathname==='/api/status')return json(res,{mode:s.mode,status:s.status,elapsed:s.elapsed,calls:s.calls,spent:s.spent,reserved:s.reserved,budget,busy,source,connections,errors:s.errors,gaps:s.gaps.length});
+    if(url.pathname==='/api/status')return json(res,{mode:s.mode,status:s.status,elapsed:s.elapsed,calls:s.calls,spent:s.spent,reserved:s.reserved,budget,busy,source,connections,chatStats:twitch?.stats??null,errors:s.errors,gaps:s.gaps.length});
     if(url.pathname==='/api/export')return json(res,recap());
     const files={'/':'index.html','/recap':'recap.html','/app.js':'app.js','/style.css':'style.css'};
     const file=files[url.pathname];if(!file)return json(res,{error:'Not found'},404);

@@ -49,7 +49,7 @@ export function publicRecap(s, delay = 0) {
     gaps: s.gaps.filter(g => g.endSec <= cutoff) };
 }
 export function chatText(recap, url = '') {
-  const base = recap.events.length ? `CatchUp [${Math.floor(recap.analyzedUntil / 60)}m]: ${recap.state} ${recap.events.slice(-2).map(e => e.summary).join(' ')}` : 'CatchUp: Building the first recap. Please try again shortly.';
+  const base = recap.analyzedUntil > 0 ? `CatchUp [${Math.floor(recap.analyzedUntil / 60)}m]: ${recap.state} ${recap.events.slice(-2).map(e => e.summary).join(' ')}` : 'CatchUp: Building the first recap. Please try again shortly.';
   const suffix = url ? ` | ${url}` : '';
   return [...base].slice(0, Math.max(0, 350 - [...suffix].length)).join('') + suffix;
 }

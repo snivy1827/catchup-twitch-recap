@@ -40,8 +40,8 @@ export class OBS {
   async capture(source, sec) {
     await this.connect();
     const {imageData}=await this.request('GetSourceScreenshot',{sourceName:source,imageFormat:'jpg',imageWidth:960,imageHeight:540,imageCompressionQuality:80});
-    if(!/^data:image\/jpeg;base64,/.test(imageData) || imageData.length > 2000000) throw Error('Invalid OBS image');
-    return {id:randomUUID(),sec,image:imageData};
+    if(!/^data:image\/(?:jpeg|jpg);base64,/.test(imageData) || imageData.length > 2000000) throw Error('Invalid OBS image');
+    return {id:randomUUID(),sec,image:imageData.replace(/^data:image\/jpg;/,'data:image/jpeg;')};
   }
   close() { this.ready=false; this.ws?.close(); }
 }
