@@ -1,6 +1,6 @@
 # CatchUp｜遊戲直播 AI 回顧 v0.1
 
-目前已完成離線 demo，並通過真實 OBS → OpenAI → Twitch `!recap` 回覆與冷卻驗證。這次使用主播本人帳號在未開台的真實聊天室測試，尚未測第二位觀眾帳號或開台串流。九項自動測試通過，詳見 [Twitch 驗證紀錄](docs/TWITCH_VALIDATION.md)。沒有自動投稿或上傳影片。
+目前已完成離線 demo，並通過真實 OBS → OpenAI → Twitch `!recap` 回覆與冷卻驗證。這次使用主播本人帳號在未開台的真實聊天室測試，尚未測第二位觀眾帳號或開台串流。九項自動測試通過，詳見 [Twitch 驗證紀錄](docs/TWITCH_VALIDATION.md)。已於 2026-11-02 投稿 Codex x TwitchCon Hackathon，Devpost 已顯示投稿成功；尚無得獎結果。
 
 ## 離線啟動
 
@@ -39,4 +39,11 @@ node src/server.mjs
 - 調整公開延遲避免比 Twitch 播放更早顯示結果。抽樣可能漏掉瞬間事件，不補編未看到的動作。
 - 詳細英文文件見 [README](README.md)、[實作差異](docs/IMPLEMENTATION.md)、[驗證紀錄](docs/verification.md)。
 
-參賽仍需真實 Twitch 展示影片、程式碼倉庫網址、英文投稿內容與真實 Codex Session ID。ZIP 本身不是完成投稿。
+## 作品、分工與投稿
+
+- [Devpost 已投稿作品](https://devpost.com/software/catchup-visual-recaps-for-twitch)｜[公開英文示範影片，約 2:45](https://www.youtube.com/watch?v=hYGgMk6Mikw)｜[一頁式作品集 PDF](docs/portfolio.zh-TW.pdf)｜[可修改 HTML](docs/portfolio.zh-TW.html)｜[LinkedIn 貼用文字](docs/LINKEDIN.zh-TW.txt)
+- **張育瑄的角色：**提出使用情境，決定視覺優先、功能範圍、成本限制與驗收條件，操作帳號授權與 OBS 設定，提供回饋並確認投稿。
+- **Codex 的協助：**產生與修改程式、測試與文件，協助整合除錯、執行檢查及準備示範與投稿素材。本作品為 AI 協作開發，不宣稱全部程式碼由本人獨立撰寫。
+- 尚無使用者留存、節省工時、大量使用或得獎的量化成果。
+- 本機自動分析已暫停，不影響他人獨立執行。全新下載版本可免金鑰離線驗證；真實串接須自行設定金鑰與授權，費用由該金鑰所屬專案負擔。
+- [最新驗證總覽](docs/verification.md)｜[投稿紀錄](docs/SUBMISSION.md)。ZIP 仍只是交付附件，不等於投稿證明。

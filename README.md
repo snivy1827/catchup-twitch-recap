@@ -4,7 +4,15 @@ Late to the stream. Right in the story.
 
 A local-first prototype that samples an OBS game source, builds evidence-backed progress notes with a vision model, and answers `!recap` / `!回顧` in Twitch chat. Viewers can read illustrated event cards without interrupting the stream.
 
-**Status:** offline demo and nine automated tests pass. Real OBS → OpenAI → Twitch chat command/reply and cooldown have passed in an offline channel using the broadcaster account; see [Twitch validation](docs/TWITCH_VALIDATION.md). On-air and second-viewer-account tests remain pending. This is not yet a submitted hackathon entry.
+**Status:** offline demo and nine automated tests pass. Real OBS → OpenAI → Twitch chat command/reply and cooldown have passed in an offline channel using the broadcaster account; see [Twitch validation](docs/TWITCH_VALIDATION.md). On-air and second-viewer-account tests remain pending. Submitted to Codex x TwitchCon Hackathon on 2026-11-02; submission success was confirmed in Devpost. This is a prototype, not a production service.
+
+## Project, authorship and submission
+
+- [Submitted Devpost entry](https://devpost.com/software/catchup-visual-recaps-for-twitch) · [Public English demo (~2:45)](https://www.youtube.com/watch?v=hYGgMk6Mikw)
+- [One-page portfolio PDF (Traditional Chinese)](docs/portfolio.zh-TW.pdf) · [Editable HTML](docs/portfolio.zh-TW.html) · [LinkedIn copy](docs/LINKEDIN.zh-TW.txt) · [Latest verification](docs/verification.md) · [Submission record](docs/SUBMISSION.md)
+- **Project owner: Yu-Hsuan Chang (張育瑄).** Defined the use case, scope, visual-first requirements, cost constraints and acceptance criteria; operated account/OBS configuration, provided feedback and confirmed the submission.
+- **Codex assistance:** generated and revised implementation, tests and documentation; helped debug integration errors, run checks and prepare demonstration/submission materials. This was AI-assisted development; the owner does not claim independent authorship of every line of code.
+- There is no measured audience adoption, retention improvement or award claim. Local analysis is paused; judges can independently run the free offline fixture or configure their own live credentials.
 
 ## Run the offline demo (no keys, no npm, no API charges)
 
