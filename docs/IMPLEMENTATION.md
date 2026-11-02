@@ -10,5 +10,5 @@ The accepted SPEC.md is the product plan. This file records actual scope changes
 - Evidence images are embedded data URLs in the persisted session (maximum 100). Non-evidence sampled frames are discarded after analysis. No video/audio is saved. Archives persist until the operator deletes their local data directory; there is no deletion button yet.
 - Public webpage export is a manually refreshed static snapshot. Twitch command summaries are current (subject to publication delay), but the remote snapshot does not synchronize automatically. The viewer page displays its observation timestamp.
 - UI supports original synthetic offline game artwork. Offline observations are scripted, not model output. Use live mode and rights-cleared game content for the official Twitch video.
-- Live adapters are implemented but require account credentials, OBS and real validation before claiming a contest-ready submission.
+- Real OBS capture, OpenAI visual analysis and Twitch command/reply plus cooldown have passed (TWITCH_VALIDATION.md). Tests used the broadcaster account in an offline channel; on-air and second-account testing remain pending.
 - GitHub source repository: https://github.com/snivy1827/catchup-twitch-recap . No video has been uploaded and no contest submission has been sent.

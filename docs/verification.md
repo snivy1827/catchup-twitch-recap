@@ -2,6 +2,10 @@
 
 Date: 2026-11-02 (Asia/Taipei). Runtime: Node.js v24.22.1, Windows. No npm packages required. No paid API call or real Twitch chat message was made during this delivery.
 
+**Later update:** real OBS capture and one paid visual API request have now passed; see [LIVE_VALIDATION.md](LIVE_VALIDATION.md). The original results below describe the earlier offline delivery. Twitch account-based end-to-end validation remains pending.
+
+**Subsequent update:** the real Twitch `!recap` command/reply and cooldown now pass. Nine tests pass, including the new state-only-summary case. See [TWITCH_VALIDATION.md](TWITCH_VALIDATION.md) for actual counters and the offline-channel/broadcaster-account scope. Earlier Pending entries below are historical.
+
 ## Executed
 
 Command: `node --test`

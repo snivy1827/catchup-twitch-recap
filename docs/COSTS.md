@@ -6,7 +6,7 @@ https://developers.openai.com/api/docs/models/gpt-5.4-mini
 Image sizing/token rules:
 https://developers.openai.com/api/docs/guides/images-vision
 
-No paid API request has been executed for this delivery. Offline cost: $0. Live hourly cost is not measured.
+Offline cost: $0. One later live component check used 2,098 input and 99 output tokens, calculated at US$0.002019. See LIVE_VALIDATION.md. Live hourly cost is not measured and billing has not been reconciled.
 
 Default: 6 images per analysis, approximately 60 analyses/hour. Reservation per analysis uses `(images × 3000 + 4000) × input_price / 1e6 + 1200 × output_price / 1e6`. With six images and default prices, reserve is $0.0219. This is a conservative working estimate for this model's high-detail patch ceiling, not an invoice estimate or a provider-enforced cap. At 60 calls, the corresponding reserved-amount ceiling is $1.314/hour; actual usage may be much lower. A $1 session budget can pause earlier. Custom models/prices require reviewing sizing and reservations before use.
 
