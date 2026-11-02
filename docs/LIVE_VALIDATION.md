@@ -1,6 +1,6 @@
 # Live component validation — 2026-11-02
 
-This report supplements the original offline verification. It does not claim Twitch end-to-end validation.
+This is the historical three-frame component check. Subsequent real Twitch integration passed within the scope recorded in [TWITCH_VALIDATION.md](TWITCH_VALIDATION.md). The latest overall status is in [verification.md](verification.md).
 
 ## OBS: PASS
 
@@ -24,12 +24,12 @@ This report supplements the original offline verification. It does not claim Twi
 
 Local evidence: `data/live-check/latest.json`, timestamped report JSON, and `sample-0.jpg` to `sample-2.jpg`. These contain gameplay and are deliberately excluded from source ZIPs and GitHub uploads.
 
-## Still pending
+## Follow-up status (updated 2026-11-02)
 
 - A longer live game sample with manually confirmed changing events.
-- Twitch developer application, OAuth, actual chat instruction and visible reply.
+- Completed subsequently: Twitch application, OAuth, actual chat command/reply and cooldown; see TWITCH_VALIDATION.md.
 - Public HTTPS recap deployment.
-- Recorded demonstration, English captions, public YouTube upload and submission.
+- Completed subsequently: English-captioned demo, public YouTube upload and Devpost submission; see SUBMISSION.md.
 
 ## Repeat the one-request check
 

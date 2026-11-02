@@ -34,5 +34,5 @@ Testing found a state-only summary edge case: an empty events array caused a mis
 
 - A second-account viewer test, on-air live broadcast test, longer changing-game sample, and reconnect/revocation fault tests have not been performed.
 - The illustrated viewer page is currently local. Static export is implemented; public HTTPS hosting is not yet configured.
-- No YouTube upload or Devpost submission has been completed as of this report.
+- Submission update (2026-11-02): public YouTube demo uploaded and Devpost submission confirmed. See [SUBMISSION.md](SUBMISSION.md). This does not extend the technical test scope.
 - This local prototype posts as the broadcaster. A separate bot identity requires a separate authorization design.
