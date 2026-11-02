@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {publicRecap} from '../src/core.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const state=JSON.parse(fs.readFileSync(path.join(root,'data/session.json'),'utf8'));
+const r=publicRecap(state,Number(process.env.PUBLISH_DELAY_SECONDS||30));
+const dir=path.join(root,'exports');fs.mkdirSync(dir,{recursive:true});
+fs.copyFileSync(path.join(root,'public/recap.html'),path.join(dir,'index.html'));
+fs.copyFileSync(path.join(root,'public/style.css'),path.join(dir,'style.css'));
+let js=fs.readFileSync(path.join(root,'public/app.js'),'utf8');
+js=js.replace("api('/api/recap')","api('./recap.json')");
+fs.writeFileSync(path.join(dir,'app.js'),js);
+fs.writeFileSync(path.join(dir,'recap.json'),JSON.stringify(r));
+let html=fs.readFileSync(path.join(dir,'index.html'),'utf8').replaceAll('href="/style.css"','href="./style.css"').replaceAll('src="/app.js"','src="./app.js"');
+fs.writeFileSync(path.join(dir,'index.html'),html);
+console.log('Public-only snapshot exported to exports/. Host these four files on an HTTPS static site. Snapshot does not auto-publish new observations.');
