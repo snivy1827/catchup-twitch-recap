@@ -41,7 +41,7 @@ node src/server.mjs
 
 ## 作品、分工與投稿
 
-- [Devpost 已投稿作品](https://devpost.com/software/catchup-visual-recaps-for-twitch)｜[公開英文示範影片，約 2:45](https://www.youtube.com/watch?v=hYGgMk6Mikw)｜[一頁式作品集 PDF](docs/portfolio.zh-TW.pdf)｜[可修改 HTML](docs/portfolio.zh-TW.html)｜[LinkedIn 貼用文字](docs/LINKEDIN.zh-TW.txt)
+- [Devpost 已投稿作品](https://devpost.com/software/catchup-visual-recaps-for-twitch)｜[公開英文示範影片，約 2:45](https://www.youtube.com/watch?v=hYGgMk6Mikw)｜[一頁式作品集 PDF](docs/portfolio.zh-TW.pdf)｜[可修改 HTML](docs/portfolio.zh-TW.html)
 - **張育瑄的角色：**提出使用情境，決定視覺優先、功能範圍、成本限制與驗收條件，操作帳號授權與 OBS 設定，提供回饋並確認投稿。
 - **Codex 的協助：**產生與修改程式、測試與文件，協助整合除錯、執行檢查及準備示範與投稿素材。本作品為 AI 協作開發，不宣稱全部程式碼由本人獨立撰寫。
 - 尚無使用者留存、節省工時、大量使用或得獎的量化成果。
