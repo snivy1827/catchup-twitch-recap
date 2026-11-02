@@ -4,7 +4,7 @@ Late to the stream. Right in the story.
 
 A local-first prototype that samples an OBS game source, builds evidence-backed progress notes with a vision model, and answers `!recap` / `!回顧` in Twitch chat. Viewers can read illustrated event cards without interrupting the stream.
 
-**Status:** offline demo and automated tests verified; real OBS / OpenAI / Twitch account integration requires operator setup and has NOT been live-validated. This is not yet a submitted hackathon entry.
+**Status:** offline demo and nine automated tests pass. Real OBS → OpenAI → Twitch chat command/reply and cooldown have passed in an offline channel using the broadcaster account; see [Twitch validation](docs/TWITCH_VALIDATION.md). On-air and second-viewer-account tests remain pending. This is not yet a submitted hackathon entry.
 
 ## Run the offline demo (no keys, no npm, no API charges)
 
@@ -21,7 +21,7 @@ The original synthetic game artwork and observations are explicitly marked SCRIP
 ## Test
 
 ```sh
-node --test
+node --test tests/*.test.mjs
 ```
 
 Tests need permission to bind a localhost port (31347). They exercise the offline HTTP flow, persistence, CSRF protection, chat throttling, evidence validation, publication delay, budget reservations, and mocked API payloads. They do not prove live external-service compatibility.

@@ -1,6 +1,6 @@
 # CatchUp｜遊戲直播 AI 回顧 v0.1
 
-目前已完成離線 demo；OBS、OpenAI、Twitch 接口已實作，尚未使用真實帳號與付費 API 完成端到端驗證。沒有自動投稿或公開上傳。
+目前已完成離線 demo，並通過真實 OBS → OpenAI → Twitch `!recap` 回覆與冷卻驗證。這次使用主播本人帳號在未開台的真實聊天室測試，尚未測第二位觀眾帳號或開台串流。九項自動測試通過，詳見 [Twitch 驗證紀錄](docs/TWITCH_VALIDATION.md)。沒有自動投稿或上傳影片。
 
 ## 離線啟動
 
@@ -32,7 +32,7 @@ node src/server.mjs
 
 ## 交付與限制
 
-- `node --test` 執行自動化測試；需允許本機 localhost 測試服務。
+- `node --test tests/*.test.mjs` 執行自動化測試；限定 tests 目錄，避免掃描 dist 內的驗證副本，需允許本機 localhost 測試服務。
 - `scripts/package.ps1` 產生 ZIP；不含 `.env`、本機 token、真實截圖、資料與私人背景。
 - 本機 viewer 網址不能給其他觀眾使用。執行 `node --env-file-if-exists=.env scripts/export.mjs`，只將 exports 中四個公開檔案上傳靜態主機；這是手動更新的快照，不會自動同步。
 - 第一版未做音訊、逐秒影片理解、全語系切換、刪除場次按鈕或自動發布。章節是既有事件的文字彙整，不另付費呼叫 AI。
