@@ -17,6 +17,10 @@ test('unseen evidence is rejected without committing events',()=>{
  const s=fresh();const f=fixtureFrame(0,60);const o=fixtureObservation(0,[f]);o.events[0].evidenceFrameIds=['invented'];
  assert.throws(()=>applyObservation(s,o,[f]),/evidence/);assert.equal(s.events.length,0);
 });
+test('analyzed state remains useful when no new event is confirmed',()=>{
+ const s=fresh('live');s.elapsed=60;const f=fixtureFrame(0,60);applyObservation(s,{state:'Player is beside three slimes. No confirmed movement.',events:[]},[f]);
+ const r=publicRecap(s);assert.equal(r.events.length,0);assert.match(chatText(r),/Player is beside three slimes/);assert.doesNotMatch(chatText(r),/Building the first recap/);
+});
 test('delay suppresses future events and images, chapters retain earlier events',()=>{
  const s=fresh('live');s.elapsed=620;
  for(let i=0;i<10;i++){const f=fixtureFrame(i,(i+1)*60);applyObservation(s,fixtureObservation(i,[f]),[f]);}
